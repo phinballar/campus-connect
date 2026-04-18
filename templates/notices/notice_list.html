@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary">📋 Notice Board</h2>
+    <a href="/notices/create/" class="btn btn-primary">+ Post Notice</a>
+</div>
+{% for notice in notices %}
+<div class="card mb-3 p-3">
+    <div class="d-flex justify-content-between">
+        <h5><a href="/notices/{{ notice.pk }}/" class="text-decoration-none">{{ notice.title }}</a></h5>
+        <span class="badge bg-secondary">{{ notice.category }}</span>
+    </div>
+    <small class="text-muted">Posted by {{ notice.author.username }} · {{ notice.created_at|date:"d M Y" }}</small>
+    <p class="mt-2 mb-0">{{ notice.content|truncatewords:20 }}</p>
+</div>
+{% empty %}
+<p class="text-muted">No notices yet. Be the first to post!</p>
+{% endfor %}
+{% endblock %}

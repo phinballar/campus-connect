@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto text-center py-5">
+        <h1 class="display-5 fw-bold text-primary">Welcome, {{ user.username }} 👋</h1>
+        <p class="lead text-muted">Your campus hub — connect, communicate, stay informed.</p>
+        <div class="row mt-4 g-3">
+            <div class="col-md-6">
+                <a href="/notices/" class="card text-decoration-none p-4 d-block">
+                    <div class="fs-1">📋</div>
+                    <h5 class="mt-2">Notice Board</h5>
+                    <p class="text-muted small">Announcements, events, academic notices</p>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="/chat/" class="card text-decoration-none p-4 d-block">
+                    <div class="fs-1">💬</div>
+                    <h5 class="mt-2">Chat Rooms</h5>
+                    <p class="text-muted small">Real-time conversations with classmates</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
