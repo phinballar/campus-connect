@@ -28,9 +28,8 @@
 
 <script>
     const roomSlug = "{{ room.slug }}";
-    const chatSocket = new WebSocket(
-        'ws://' + window.location.host + '/ws/chat/' + roomSlug + '/'
-    );
+    const wsProtocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+        wsProtocol + window.location.host + '/ws/chat/' + roomSlug + '/'
 
     const chatLog = document.getElementById('chat-log');
     const chatInput = document.getElementById('chat-input');
